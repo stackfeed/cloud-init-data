@@ -1,5 +1,7 @@
 #cloud-config
 
+merge_how: "dict(recurse_array,no_replace)+list(append)"
+
 package_upgrade: true
 packages:
   - python
@@ -16,10 +18,6 @@ bootcmd:
   -   spaces=$(sed -n 's/- runcmd//p' $config_modules_file)
   -   sed -i "/- runcmd/i \\${spaces}- salt-minion" $config_modules_file
   - fi
-  - salt_url=https://bootstrap.saltstack.com
-  - "(curl -sSL -o /tmp/install-salt.sh $salt_url || wget -qO /tmp/install-salt.sh $salt_url)"
-  - "[ -s /tmp/install-salt.sh ] && sh /tmp/install-salt.sh -X stable || exit $?"
-
 
 write_files:
   - path: /var/lib/stackfeed/cc/scripts/pyenv
@@ -39,3 +37,7 @@ write_files:
 runcmd:
   # Create a shortcut to stackfeed scripts directory
   - SF_SCRIPTS=/var/lib/stackfeed/cc/scripts
+  # Install salt
+  - salt_url=https://bootstrap.saltstack.com
+  - "(curl -sSL -o /tmp/install-salt.sh $salt_url || wget -qO /tmp/install-salt.sh $salt_url)"
+  - "[ -s /tmp/install-salt.sh ] && sh /tmp/install-salt.sh -X stable || exit $?"
