@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+
+# jsonenv reads a json object as input and produces
+# escaped shell commands for setting environment vars
+
+from __future__ import print_function
+
+import json
+import pipes
+import sys
+import argparse
+
+class CLI(object):
+    DESC="""Converts json hashes from files or stdin into env file.
+            If - or no files given stdin is read."""
+
+    def __init__(self):
+        super(CLI, self).__init__()
+        self._config = None
+        self.parser = argparse.ArgumentParser(description=CLI.DESC)
+        self.parser.add_argument('-e', dest='export', default=False, action='store_true', help='print export lines')
+        self.parser.add_argument('-u', dest='upcase', default=False, action='store_true', help='upcase variable names')
+        self.parser.add_argument('file', nargs='?')
+
+    @property
+    def config(self):
+        if self._config:
+            return self._config
+
+        self._config = vars(self.parser.parse_args())
+        return self._config 
+
+
+## -----------------------------------------------------------------------------
+#
+
+header = ''
+ins = sys.stdin
+config = CLI().config
+
+if config['file']:
+    ins = open(config['file'], 'r')
+
+if config['export']:
+    header = 'export '
+
+for k, v in json.load(ins).items():
+    k = pipes.quote(k)
+    v = pipes.quote(v)
+    if config['upcase']:
+        k = k.upper()
+    print('{}{}={}'.format(header, k, v))
+   
+if ins is not sys.stdin:
+    ins.close()
