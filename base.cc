@@ -15,8 +15,8 @@ runcmd:
 # ---------- Files ----------
 #
 
-# stackfeed functions
 write_files:
+  # stackfeed functions  
   - path: /var/lib/stackfeed/cc/functions
     permissions: "0644"
     encoding: "gz+b64"
@@ -28,8 +28,7 @@ write_files:
         PXi6ELN38L3qwnGww64OGwX/yrbGZV9jx+xYZsS+UbLIURidxnRnztxFB6EsZNs68h6mQ+gJK7UhDT0ONTm2yy1jeJi+Nz5oORCEkOu1UFbsqsjH2ZoxQLSX
         uIToeOL6D5tj8wAZAwAA
 
-# pyenv script
-write_files:
+  # pyenv script
   - path: /var/lib/stackfeed/cc/scripts/pyenv
     permissions: "0755"
     encoding: "gz+b64"

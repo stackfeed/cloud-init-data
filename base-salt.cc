@@ -27,8 +27,8 @@ runcmd:
 # ---------- Files ----------
 #
 
-# stackfeed functions
 write_files:
+  # stackfeed functions
   - path: /var/lib/stackfeed/cc/functions
     permissions: "0644"
     encoding: "gz+b64"
@@ -40,8 +40,7 @@ write_files:
         PXi6ELN38L3qwnGww64OGwX/yrbGZV9jx+xYZsS+UbLIURidxnRnztxFB6EsZNs68h6mQ+gJK7UhDT0ONTm2yy1jeJi+Nz5oORCEkOu1UFbsqsjH2ZoxQLSX
         uIToeOL6D5tj8wAZAwAA
 
-# pynenv helper
-write_files:
+  # pynenv helper
   - path: /var/lib/stackfeed/cc/scripts/pyenv
     permissions: "0755"
     encoding: "gz+b64"
@@ -55,8 +54,7 @@ write_files:
         cpunWQxGdhXFWAoVcCS5CnZPsPxuiF/RBKz2RcXphXkq5jMKc//dnYqZXO1FtGlqy/Xc5RV/en56rp+euSBSowxV4bvK/ErVUm4pf3oftAknCY/KiHYwHsnt
         H/lxFymgBQAA
 
-# get-salt
-write_files:
+  # get-salt
   - path: /var/lib/stackfeed/cc/scripts/get-salt.sh
     permissions: "0755"
     encoding: "gz+b64"
@@ -64,8 +62,3 @@ write_files:
         H4sIADEytlcAA4WOywrCMBBF9/MVIxbRRRrXhaIuhYLgYyVS2lLbYNLUzIiC+u+mqOCi4GoYOOfeOxzIXDWSaoAhLhviTGukTDMa1SjbwGaRbNPdOolr5pYi
         KXNrmdhlbdhhXihOYWENqLecZq6iOLjPI+H/XJdPAEfxFMbFxWkUtElQWJRsWvlRRBcUUo3BtwwfD7xWJaM4r/6gE9j70H7ogKMR+tuf8Du4K/Qrgxk4g+LY
         awCUN8UYOIIXpA/eFTYBAAA=
-
-# minion config
-write_files:
-  - path: /etc/salt/minion
-    permissions: "0644"
