@@ -2,8 +2,14 @@
 
 # Get docker
 #
-curl -sSL https://get.docker.com/ | sh
-[ $? -ne 0 ] && { >&2 echo "Couldn't install docker, maybe fetch agents curl or wget don't exist."; exit 1; }
+(curl -sSL https://get.docker.com/ | sh) || (wget -qO- https://get.docker.com/ | sh)
+rs=$?
+
+# Workaround service startup failure on Xenial (during cloud-init setup).
+#
+if [ -n "$(pidof systemd)" ]; then
+    sleep 3; systemctl restart docker
+fi
 
 # Wait for docker
 # Totally wait for 6 seconds (30*0.2)
@@ -15,5 +21,7 @@ while ( ! docker info 1>/dev/null 2>&1 ); do
     [ $retries -eq 0 ] && break || sleep $interval
     retries=$((retries-1))
 done
+
+( docker info 1>/dev/null 2>&1 ) || { >&2 echo "==> Docker couldn't be successfully installed!"; exit 1; }
 
 exit 0

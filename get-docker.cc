@@ -12,7 +12,8 @@ write_files:
     permissions: "0755"
     encoding: "gz+b64"
     content: |
-        H4sIAKlVt1cAAzVQu07DMBTd/RWnTRUSROKklRiIGgYGFjaQGBBDmtw8VNcuttNSUf4dJyR3ulfH52VvwXed5KZlzMMzWVSq3JNmHit7LRCZ1xe01h7NA+cN
-        2fgfjkt14LjC0T6wekQkCQk+4fv4Qe6vQWWrsHxSvajkjUUnjS2EmMTvcCguO0JNtmxRNCStwWinNM7NGGJg0XdnbLzMhsUizfA7hHwv3FG7l3NSvKlB/ILz
-        jNzDUKlkZRBsktskXoeujyarOzLbTcI6aUmfCrF1EGPnthOEAItJ0aWtFdKcV3Tisnex17mfIswczuDGVZ7EENHXXHynqdjj6j5FEB2xmk1Gymy+CoJpjdIw
-        ZK4nMTbWS9gft2k70IsBAAA=
+        H4sIAHZvt1cAA4VRu27bMBTd+RXHtuBQBWTJNpChgtylQJcCHVIgAYwMMnkVEWZIh4+4Qdx/DyXbGVtOFzj3nhdnk3KnTOl7xmb4QQHSij05NmNcRKdR+Luf
+        6EM4+K9l+URhccYXwj6XOMH3OU4n8GOCULz8Kv69y5xvsm+D1L11+9bZaCQ8uVclCD60LsQDulbp6AjW4IGMajW4jE6ZJwhtoyyUUSEdpdV8kXyqDlsUBtOM
+        H5S0HfybD/Qs8ykea4SeDEN6XhMdsK4vsAgajkbJa+ROjcbaxN5Z91kEftvQav2G4xW5TerCGunB19WXarHKkw1HwSnyzbpiyoQUqdVNghg79koTOCYXRijT
+        WSw3paTX0kStsdrMl8jrhI9Ot8guZCjoBRUeMZ9j56jdD12fg2RXkfHkKp5xfhmLZZ4zaQ0xxv8jPJC+YzNfgURvMW2aDb6fL4SNWpqbgF36nigEed/FoQtl
+        /FAKycm0Bv1JxSxr/GVsHCv2AcPb/MtWAgAA
