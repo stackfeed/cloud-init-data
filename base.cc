@@ -1,13 +1,21 @@
 #cloud-config
 
 package_upgrade: true
-
 packages:
   - python
   - curl
   - wget
   - htop
   - nano
+  - virt-what
+
+runcmd:
+  - |
+      # Create a shortcut to stackfeed scripts directory
+      SF_SCRIPTS=/var/lib/stackfeed/cc/scripts
+
+# ---------- Files ----------
+#
 
 write_files:
   - path: /var/lib/stackfeed/cc/scripts/pyenv
@@ -22,7 +30,3 @@ write_files:
         sL/VN01IdU4zfxJRXy1PibziEhgN8QLW/3OxBWM7aufcX5wzpT1taPBE7nZ2pJ0GbikOuamDTD+LrndFj4ImPXV1ebwC7pLiZ7i542bkicPcUJxeERrB/Qom
         cpunWQxGdhXFWAoVcCS5CnZPsPxuiF/RBKz2RcXphXkq5jMKc//dnYqZXO1FtGlqy/Xc5RV/en56rp+euSBSowxV4bvK/ErVUm4pf3oftAknCY/KiHYwHsnt
         H/lxFymgBQAA
-
-runcmd:
-  # Create a shortcut to stackfeed scripts directory
-  - SF_SCRIPTS=/var/lib/stackfeed/cc/scripts

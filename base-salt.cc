@@ -1,7 +1,5 @@
 #cloud-config
 
-merge_how: "dict(recurse_array,no_replace)+list(append)"
-
 package_upgrade: true
 packages:
   - python
@@ -9,16 +7,28 @@ packages:
   - wget
   - htop
   - nano
-
+  - virt-what
 
 bootcmd:
-  # Enable config module - salt-minion if it's disabled (ex. on Amazon linux)
-  - config_modules_file=$(grep -rl "\- runcmd" /etc/cloud/ | head -n1)
-  - if (! grep -q salt-minion $config_modules_file ); then
-  -   spaces=$(sed -n 's/- runcmd//p' $config_modules_file)
-  -   sed -i "/- runcmd/i \\${spaces}- salt-minion" $config_modules_file
-  - fi
+  - |
+      # Enable config module - salt-minion if it's disabled (ex. on Amazon linux)
+      #
+      config_modules_file=$(grep -rl "\- runcmd" /etc/cloud/ | head -n1)
+      if (! grep -q salt-minion $config_modules_file ); then
+        spaces=$(sed -n 's/- runcmd//p' $config_modules_file)
+      sed -i "/- runcmd/i \\${spaces}- salt-minion" $config_modules_file
+      fi
 
+runcmd:
+  - |
+      # Create a shortcut to stackfeed scripts directory
+      SF_SCRIPTS=/var/lib/stackfeed/cc/scripts
+      cloud-init-per once get-salt $SF_SCRIPTS/get-salt.sh stable
+
+# ---------- Files ----------
+#
+
+# pynenv helper
 write_files:
   - path: /var/lib/stackfeed/cc/scripts/pyenv
     permissions: "0755"
@@ -33,11 +43,17 @@ write_files:
         cpunWQxGdhXFWAoVcCS5CnZPsPxuiF/RBKz2RcXphXkq5jMKc//dnYqZXO1FtGlqy/Xc5RV/en56rp+euSBSowxV4bvK/ErVUm4pf3oftAknCY/KiHYwHsnt
         H/lxFymgBQAA
 
+# get-salt
+write_files:
+  - path: /var/lib/stackfeed/cc/scripts/get-salt.sh
+    permissions: "0755"
+    encoding: "gz+b64"
+    content: |
+        H4sIADEytlcAA4WOywrCMBBF9/MVIxbRRRrXhaIuhYLgYyVS2lLbYNLUzIiC+u+mqOCi4GoYOOfeOxzIXDWSaoAhLhviTGukTDMa1SjbwGaRbNPdOolr5pYi
+        KXNrmdhlbdhhXihOYWENqLecZq6iOLjPI+H/XJdPAEfxFMbFxWkUtElQWJRsWvlRRBcUUo3BtwwfD7xWJaM4r/6gE9j70H7ogKMR+tuf8Du4K/Qrgxk4g+LY
+        awCUN8UYOIIXpA/eFTYBAAA=
 
-runcmd:
-  # Create a shortcut to stackfeed scripts directory
-  - SF_SCRIPTS=/var/lib/stackfeed/cc/scripts
-  # Install salt
-  - salt_url=https://bootstrap.saltstack.com
-  - "(curl -sSL -o /tmp/install-salt.sh $salt_url || wget -qO /tmp/install-salt.sh $salt_url)"
-  - "[ -s /tmp/install-salt.sh ] && sh /tmp/install-salt.sh -X stable || exit $?"
+# minion config
+write_files:
+  - path: /etc/salt/minion
+    permissions: "0644"
