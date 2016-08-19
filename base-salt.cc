@@ -21,12 +21,24 @@ bootcmd:
 
 runcmd:
   - |
-      # Create a shortcut to stackfeed scripts directory
-      SF_SCRIPTS=/var/lib/stackfeed/cc/scripts
-      cloud-init-per once get-salt $SF_SCRIPTS/get-salt.sh stable
+      . /var/lib/stackfeed/cc/functions
+      cloud-init-per once get-salt get-salt.sh stable
 
 # ---------- Files ----------
 #
+
+# stackfeed functions
+write_files:
+  - path: /var/lib/stackfeed/cc/functions
+    permissions: "0644"
+    encoding: "gz+b64"
+    content: |
+        H4sIAPtLt1cAA1VRXU/jMBB8z68YggXpgwnl3kCVDiGd7t4qyokHhCqn2TSGxs7ZTk8nyn+/tfuJFSne2fXO7Oz5WVlpU/o2y87xu69VIPQqtNnsx3z28Phr
+        +jSblGvlypWuSh/U4r0hqku/4M/pPvisoEVrIab3Tz+xwdJRD/kH4vh+hM0GMT1JRbcnqUj6rHRAYx0avSIEC9X3pFz2l/E54/OIFyN8ZOATg6hvIsYpjlVc
+        NBEfN7dyfHP9mVBtArm1WjH8jeHPLKEnXAqOVK0qZvxKC04G3ZEdwtWWoI35F5xBOuRiz5/j9Q61TSXxvEDspEAuCdd4xcXFUV1R7K5yL22UbKlYxntqUltD
+        GQtlRx5ZGsistbOmIxPgKQRtlh6Nsx1r97rrWdSbt2YrvzAWhnygGrZ6o0Xwo6tMm34I3ObgXf+Po7nlpU1yOUBSnuAtkJ9MWyDtNBfHF/nJbnMxzjH6Mv62
+        h4g/cPYOvtVNOA522NVhoxDfs61xyVfumBxLjNg3ihY5CoMzGO/MmTp2ELqHqmtH3sM2CC1hqddkYIauIpftcnMOD9O31gejOoKUarWSupe7KvI822IIkPUl
+        LiEbEbn+A0QKE5QZAwAA
 
 # pynenv helper
 write_files:

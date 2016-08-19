@@ -2,7 +2,7 @@
 
 merge_how: "dict(recurse_array,no_replace)+list(append)"
 runcmd:
-  - cloud-init-per once get-docker $SC_SCRIPTS/get-docker.sh
+  - cloud-init-per once get-docker get-docker.sh
 
 # ---------- Files ----------
 #

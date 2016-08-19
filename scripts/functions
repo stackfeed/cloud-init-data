@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Update path
+SF_SCRIPTS=/var/lib/stackfeed/sc/scripts
+(echo $PATH | grep -q $SF_SCRIPTS) || PATH=$PATH:$SF_SCRIPTS
+
+# Wait for file to appear
+wait_for_file() {
+    filepath=$1
+    waitfor=${2:-120}
+    interval=${3:-1}
+
+    # Wait for a readable file to appear or timeout.
+    while [ ! -r "$filepath" ]; do
+        [ $waitfor -ge 0 ] && waitfor=$((waitfor-interval)) || break
+    done
+}
+
+
+# Read environment settings from a simple json file (no nested objects).
+inputenv() {
+    pyenv_opts="-u -e"
+    opts=""
+    while ( echo "$pyenv_opts" | grep -q "$1" ); do
+        opts="$opts $1"; shift
+    done
+
+    wait_for_file $@
+    [ -r "$1" ] && pyenv $opts $1 || return 1
+}
+
+
+# Print ip address of the given number
+address_num() {
+    hostname --all-ip-addresses | cut -d' ' -f$1
+}
