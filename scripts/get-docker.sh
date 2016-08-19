@@ -11,7 +11,7 @@ curl -sSL https://get.docker.com/ | sh
 retries=30
 interval=0.2
 
-while (! docker info &>/dev/null); do
+while ( ! docker info 1>/dev/null 2>&1 ); do
     [ $retries -eq 0 ] && break || sleep $interval
     retries=$((retries-1))
 done
