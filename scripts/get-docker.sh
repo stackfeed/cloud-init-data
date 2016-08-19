@@ -3,7 +3,6 @@
 # Get docker
 #
 (curl -sSL https://get.docker.com/ | sh) || (wget -qO- https://get.docker.com/ | sh)
-rs=$?
 
 # Workaround service startup failure on Xenial (during cloud-init setup).
 #

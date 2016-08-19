@@ -21,12 +21,12 @@ write_files:
     permissions: "0644"
     encoding: "gz+b64"
     content: |
-        H4sIAGVVt1cAA1VRTU/cMBC9+1c8ggXZgwlLb6CVWlWq2tuKpeKA0MpJJhvDxnZtZ6sK+O+1vZ/4Ys+b8bw3b87PqlrpyveMneO3bWUgWBl6tvixXHy//zV/
-        WMyqjXTVWtWVD7J57Yjaqmkq3zhlg2clNb0Bn397+Il3rBxZiD/gx/8TvL8jpWe56PYklUgfpQrojEOn1oRgIK0l6djfiC8jvkx4OcEbQzwpSPpmfJrjVBWL
-        Zvzt5lZMb64/Mqp0ILeR6wh/ifAHy+gJl4Qj2co6Mn6mRUwGNZAZw9WWoE/5J5xBOBR8z1/g+Q6tySXpPIHvpECsCNd4xsXFUV1Z7p5iL22SbamjjNfcpDWa
-        WBQaHbmP0kB6o5zRA+kATyEovfLonBmidq8GG0W9eKO38kttoMkHamHqF2qCn1wxpe0YYpuDd/ZfjJYmLm1WiBGCigxvgeJk2hJ5pwU//ihOdlvwaYHJp/G3
-        PXi6ELN38L3qwnGww64OGwX/yrbGZV9jx+xYZsS+UbLIURidxnRnztxFB6EsZNs68h6mQ+gJK7UhDT0ONTm2yy1jeJi+Nz5oORCEkOu1UFbsqsjH2ZoxQLSX
-        uIToeOL6D5tj8wAZAwAA
+        H4sIAOt3t1cAA1VRy27bMBC86ysmCpHIB0ZxektgoEWBor0ZcYoeksCgpJXFRCJVknZQxPn3ruiHHF6knX3M7Oz5WV5ok/smSc7xu69UIPQqNMnix3Lx/f7X
+        /GExyzfK5a0uch9U+VoTVXlZ5r50ug8+yahsLMT828NPbLFy1EP+hRj7J9huMaRnsej2JDWQ/lE6oLYOtW4JwUL1PSmXvDG+ZHw54NkE7wn4DcGgbyamMXYU
+        nCY/E+83t3J6c/0RUW0CuY1qGf7C8EcS0RMuxY2qUgUzfqYFJ4PuyK7DVWx6a4b8I84gHVJx4E/xfIfKxpLhPULspUCuAq7xjIuLUV2W7X/ldBL9KJj/9djt
+        W2LbxEF2xCtrKGHlbNE9awWZjXbWdGQCPIWgzcqjdrbjZbzuelb54q3Z7ZMZC0M+UAVbvFAZ/ORqdHSo43FHU/t/HC0tX3OWyjUkpRHeAemJDRnisVMxdqQn
+        R0+fnsQ0xeSTM7spYviAs3fwja7DuOJu/OmxIb4mO0+j5Twxmhk5cRg0mMierp3BdG/T3LGB0D1UVTnyHrZGaAgrvSEDs+4Kcsk+t+TwuH9jfTCqI0ip2lbq
+        Xu6r+JpblOsAWV3iErIWA9d/Av727jQDAAA=
 
   # pyenv script
   - path: /var/lib/stackfeed/cc/scripts/pyenv
