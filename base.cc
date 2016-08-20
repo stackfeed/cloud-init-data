@@ -10,7 +10,15 @@ packages:
   - virt-what
 
 runcmd:
-  - . /var/lib/stackfeed/cc/functions
+  - |
+      # Install confd file generator
+      #
+      confd_url=https://github.com/kelseyhightower/confd/releases/download/v0.12.0-alpha3/confd-0.12.0-alpha3-linux-amd64
+      curl -L "$confd_url" -o /usr/local/bin/confd && chmod +x /usr/local/bin/confd
+  - |
+      # Source stackfeed helpers
+      #
+      . /var/lib/stackfeed/cc/functions
 
 # ---------- Files ----------
 #
