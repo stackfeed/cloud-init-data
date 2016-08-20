@@ -11,10 +11,10 @@ packages:
 
 runcmd:
   - |
-      # Install confd file generator
+      # Install dockerize file generator
       #
-      confd_url=https://github.com/kelseyhightower/confd/releases/download/v0.12.0-alpha3/confd-0.12.0-alpha3-linux-amd64
-      curl -L "$confd_url" -o /usr/local/bin/confd && chmod +x /usr/local/bin/confd
+      url=https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz
+      curl -sSL "$url" | tar xz -C /usr/local/bin && chmod +x /usr/local/bin/dockerize
   - |
       # Source stackfeed helpers
       #
