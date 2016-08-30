@@ -9,10 +9,10 @@
 if [ -n "$(pidof systemd)" ]; then
     # Several attempts to restart docker
     retries=5
-    interval=1
+    interval=2
 
-    while ( ! docker info 1>/dev/null 2>&1 ); do
-        systemctl restart docker
+    while ( ! systemctl status docker 1>/dev/null 2>&1 ); do
+        systemctl stop docker; systemctl start docker;
         [ $retries -eq 0 ] && break || sleep $interval
         retries=$((retries-1))
     done
