@@ -2,7 +2,8 @@
 
 # Get docker
 #
-(curl -sSL https://get.docker.com/ | sh) || (wget -qO- https://get.docker.com/ | sh)
+fetch=`( curl -V >/dev/null && echo "curl -sSL" ) || ( wget -V && echo "wget -qO-" )`
+$fetch https://get.docker.com/ | sh
 
 # Workaround service startup failure on Xenial (during cloud-init setup).
 #
