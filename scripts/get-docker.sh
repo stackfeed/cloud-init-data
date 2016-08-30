@@ -7,7 +7,15 @@
 # Workaround service startup failure on Xenial (during cloud-init setup).
 #
 if [ -n "$(pidof systemd)" ]; then
-    sleep 3; systemctl restart docker
+    # Several attempts to restart docker
+    retries=5
+    interval=1
+
+    while ( ! docker info 1>/dev/null 2>&1 ); do
+        systemctl restart docker
+        [ $retries -eq 0 ] && break || sleep $interval
+        retries=$((retries-1))
+    done
 fi
 
 # Wait for docker
