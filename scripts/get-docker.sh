@@ -7,7 +7,7 @@ $fetch https://get.docker.com/ | sh
 
 # Workaround service startup failure on Xenial (during cloud-init setup).
 #
-if [ -n "$(pidof systemd)" ]; then
+if [ -d /run/systemd/system ]; then
     >&2 echo "==> Trying to disable socket activation for docker.service"
     sed -i 's%-H fd://%%' /lib/systemd/system/docker.service
     sleep 5
