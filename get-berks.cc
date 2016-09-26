@@ -4,7 +4,9 @@
 
 merge_how: "dict(recurse_array,no_replace)+list(append)"
 packages:
+  - build-essential
   - ruby
+  - ruby-dev
   - git
 
 runcmd:
