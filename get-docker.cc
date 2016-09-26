@@ -3,6 +3,11 @@
 merge_how: "dict(recurse_array,no_replace)+list(append)"
 runcmd:
   - cloud-init-per once get-docker get-docker.sh
+  - |
+      # Install dockerize file generator
+      #
+      url="https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz"
+      cloud-init-per once get-dockerize sh -c "curl -sSL '$url' | tar xz -C /usr/local/bin && chmod +x /usr/local/bin/dockerize"
 
 # ---------- Files ----------
 #
