@@ -5,9 +5,7 @@
 merge_how: "dict(recurse_array,no_replace)+list(append)"
 packages:
   - build-essential
-  - ruby
-  - ruby-dev
   - git
 
 runcmd:
-  - cloud-init-per once get-berks sh -c 'gem install chef berkshelf --no-ri --no-rdoc'
+  - cloud-init-per once get-berks sh -c 'curl -sSL https://omnitruck.chef.io/install.sh | sh && /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc'
