@@ -99,7 +99,7 @@ if [ -n "$list_url" ]; then
         # it's a remote URL
         curl -V 1>/dev/null 2>&1 && fetcher=curl && opts=-sSL
         [ -z "$fetcher" ] && wget -V 1>/dev/null 2>&1 && fetcher=wget && opts=-qO-
-        [ -z "$fetcher" ] && { echo "Neither curl nor wget found!"; exit 1; }
+        [ -z "$fetcher" ] && { echo "$0: $*\n==> Neither curl nor wget found!"; exit 1; }
 
         $fetcher $opts "$list_url" > $tempfile
     elif [ -f "$list_url" ]; then
@@ -107,7 +107,7 @@ if [ -n "$list_url" ]; then
         # it's a local file
         cat "$list_url" > $tempfile
     elif [ $# -lt 1 ]; then
-        echo "==> You must provide path to a local or a remote file!"
+        echo "$0: $*\n==> File doesn't exist or wrong URL, provide path to a local or a remote file!"
         exit 1
     fi
 
