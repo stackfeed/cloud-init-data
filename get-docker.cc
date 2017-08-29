@@ -6,7 +6,7 @@ runcmd:
   - |
       # Install dockerize file generator
       #
-      url="https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz"
+      url="https://github.com/jwilder/dockerize/releases/download/v0.5.0/dockerize-linux-amd64-v0.5.0.tar.gz"
       cloud-init-per once get-dockerize sh -c "curl -sSL '$url' | tar xz -C /usr/local/bin && chmod +x /usr/local/bin/dockerize"
 
 # ---------- Files ----------
@@ -17,9 +17,9 @@ write_files:
     permissions: "0755"
     encoding: "gz+b64"
     content: |
-        H4sICPUD5FcAA2dldC1kb2NrZXIuc2gAhVJNj9MwEL37V7x+J0hp0q7gQNWekOCAxIEVIK1WWteebKy6dtd2WirKf8f5KB+9kEtGnpn33ryZ0SDfKpP7irER
-        3lOAtGJHjo1YSUFU66cEonYa2RdscknH3NRaYzoFicpi2OX8549DpLhckOD0HEFi9e+S7uHlUxZLnti4hUUVwsG/zfOYm3eMc2H3OS7olHy1bsedrY2EJ3dU
-        guADd6E+oORK145gDb6RUVwjkbVT5hlC21pmyqgQm2JpOo9jqBIPyCRyV8cxzz7QXvZ/PK4QKjIM8dtMl73g9XqDe3duEIOFVJ5vdaRvVAZwEdSRBxXZS+t6
-        t+a9xmGL5EkiU5j5SfYBpYxTTiYz5Fptb/jzf7u7Zk10wOsubqtE0JCc9tZkjrTl8ibnqHXmurhStf7xaMIfgfHl3gau9Rmna+ZNFCqskR7JXfGqmC/T6Jaj
-        4BT59V3BlAlRF9frmGLsVKloQoJBjwhlSovFXzex3EwXSFcx3wp8wLgHQ0YvKPDYnMTWEd81h9LNOb6StC1X8nGS9GG2SFMmrSHGkv8QN6A/brb4rusQttbS
-        zAK2cY21EOR9WTdeKOMbU0gOhivQ92jMYoWfjLVhwX4B+9EwSBwDAAA=
+        H4sIAPCfpVkAA21STY/TMBS8+1dMvxOkNG1XcKBqLyDBAYkDK0BaIda1XzZWXbtrOy3Vlv+O89GFrTjFeW/e88x4Br18o0zuS8YG+EAB0ootOTZgBQVRru4T
+        iMppZF+xziUdclNpjfEYJEqLftvzXz71keJ8RoLjQ1wS0c+QtvD4OYuQezZs1qIMYe/f5nnsTdsbp8LucpzRMnlXkthCFR0dKA9XGaPMA2srP7vfJMUTAy64
+        vcf8H56L9XjOftcLv3EVUFj3rA+3NnCtTzheOm/gSVgjPZKb2avZdJFGFxwFp8ivbmZMmUDuwPUqthg7lkpT1NvDS0JAuoylmhPuMOzmkdEjZvhR27JxxLe1
+        WV4T7TG87G1GLvcNk6Q7ZvM0jaINNTKs23JnKyMjWXdQguADd6Hao+BKV45gDb6TUVwjkZWrGQltK5kpE3V6itB0GoVFb++QSeSRd+5PPtBOdt+W5n+kRWWh
+        JNMQXY8X3QOvVmvculMNCBZSeb6Jzvh6NICLoA48qMjqr/vTjnu/2eRJIlOY+FH2EYWMqRiNJsi12lzxyl9Ot8ONh6/bc4MSQUNy2lmTOdKWy6ueo8axSxAK
+        xa4iVT/N05W+9228hK20NJOATRRYCUHeF1UdImV8nSaSvf4S9Cs6PV8iBq85ztgfQFoEoGYDAAA=
