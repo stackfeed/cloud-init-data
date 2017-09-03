@@ -1,5 +1,5 @@
 #cloud-config
-## Installs latest chef using system ruby
+## Installs latest chef using omnibus intaller
 #
 
 merge_how: "dict(recurse_array,no_replace)+list(append)"
